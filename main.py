@@ -37,9 +37,3 @@ if __name__ == '__main__':
     undistorted = undistort(mtx, dist, test_regex_path, test_save_path)
     binary_images = combined_threshold(undistorted, thresh_s, thresh_sx, thresh_sy, thresh_dir)
 
-    # i = 0
-    # for img in binary_images:
-    #     cv2.imwrite('test_images/t'+str(i)+'.jpg', img)
-    #     plt.imshow(img, cmap='gray')
-    #     plt.show()
-    #     i += 1

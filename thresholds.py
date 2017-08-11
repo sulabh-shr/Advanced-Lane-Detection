@@ -118,6 +118,6 @@ def combined_threshold(images, ts, tsx, tsy, td):
         to_write[selected==1] = 255
         cv2.imwrite('outputs/' + str(i) + 'cmb.jpg', to_write)
         cv2.imwrite('outputs/cmb' + str(i) + 'cmb.jpg', to_write)
-        i+=1
+        i += 1
     return output
 
