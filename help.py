@@ -1,7 +1,7 @@
 import numpy as np
 
-a = np.array([[0, 0, 4, 6],
-              [5, 0, 0, 1],
+a = np.array([[0, 0, 14, 6],
+              [-1, 0, 0, 19],
               [8, 0, 2, 0],
              [0, 11, 0, 7]])
 
@@ -26,4 +26,14 @@ print('\nDSTACK')
 print('stacked: \n', stacked)
 print('shape: ', stacked.shape)
 print('(num_rows, num_cols, num_arrays)')
+
+print('\nARGMAX')
+print('Index of max value: ', np.argmax(a))
+print('Row with max value per column')
+print('Column:  1 2 3 4')
+print('Index: ', np.argmax(a, axis=0))
+print('Col with max value per row')
+print('Row:    1 2 3 4')
+print('Index:', np.argmax(a, axis=1))
+
 

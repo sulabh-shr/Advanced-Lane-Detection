@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 from thresholds import *
 from calibrate import *
-
+from perspective import warp
 
 if __name__ == '__main__':
     chess_rows = 6
@@ -17,8 +17,8 @@ if __name__ == '__main__':
     test_regex_path = 'test_images/test*.jpg'
     test_save_path = 'test_images/undistorted/'
 
-    thresh_s = (180, 255)
-    thresh_sx = (20, 255)
+    thresh_s = (190, 255)
+    thresh_sx = (40, 255)
     thresh_sy = (20, 110)
     thresh_dir = (0.68, 1.3)
 
@@ -36,4 +36,7 @@ if __name__ == '__main__':
 
     undistorted = undistort(mtx, dist, test_regex_path, test_save_path)
     binary_images = combined_threshold(undistorted, thresh_s, thresh_sx, thresh_sy, thresh_dir)
+    for img in binary_images:
+        plt.imshow(warp(img), cmap='gray')
+        plt.show()
 
