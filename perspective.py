@@ -1,7 +1,7 @@
 import numpy as np
 import cv2
 from calibrate import read_images
-
+import matplotlib.pyplot as plt
 
 def warp(image, save=False, name=''):
     src_high = 460
@@ -30,21 +30,18 @@ def warp(image, save=False, name=''):
     warped_size = (dst_width, dst_height)
     warped = cv2.warpPerspective(image, M, warped_size, flags=cv2.INTER_LINEAR)
     if save:
-        save_img = np.zeros_like(warped)
-        save_img[warped==1] = 255
-        cv2.imwrite('outputs/warped/' + str(name)+'warped.jpg', warped)
-        save_img = np.zeros_like(image)
-        save_img[image==1] = 255
-        cv2.imwrite('outputs/warped/' + str(name)+'img.jpg', image)
+        plt.imshow(warped, cmap='gray')
+        plt.xlim(0, 1280)
+        plt.ylim(720, 0)
+        plt.savefig('outputs/warped/' + str(name) + 'warped.jpg')
+        plt.close()
+        plt.imshow(image, cmap='gray')
+        plt.xlim(0, 1280)
+        plt.ylim(720, 0)
+        plt.savefig('outputs/warped/' + str(name) + 'img.jpg')
+        plt.close()
     return warped
 
-    # for i in images:
-    #     plt.imshow(i)
-    #     plt.plot(530, 415, '.')
-    #     plt.plot(720, 415, '.')
-    #     plt.plot(200, 680, '.')
-    #     plt.plot(1200, 680, '.')
-    #     plt.show()
 
 if __name__ == '__main__':
     images = read_images('test_images/test*.jpg')
