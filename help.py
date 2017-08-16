@@ -36,4 +36,15 @@ print('Col with max value per row')
 print('Row:    1 2 3 4')
 print('Index:', np.argmax(a, axis=1))
 
+print('\nCONCATENATE')
+print('Before concatenation: \n', a)
+print('Concatenate with single argument: ', np.concatenate(a))
+print('Concatenation is equal to unfolding')
+
+print('\nLINESPACE')
+print('1-6 with num=5 (and endpoint=False by default): ')
+print(np.linspace(start=1, stop=6, num=5, endpoint=False))
+print('1-6 with num=5 and endpoint=True with 14 samples: ')
+print(np.linspace(start=1, stop=6, num=5, endpoint=True))
+
 
